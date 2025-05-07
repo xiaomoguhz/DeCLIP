@@ -1,0 +1,16 @@
+torch==2.0.0
+torchvision==0.15.1
+regex==2024.5.15
+ftfy==6.2.0
+tqdm==4.65.2
+huggingface-hub==0.27.1
+sentencepiece==0.2.0
+protobuf==3.20.3
+timm==0.4.12
+fsspec==2024.6.0
+transformers
+pandas==2.2.2
+numpy==1.26.4
+matplotlib
+einops
+xformers==0.0.18
