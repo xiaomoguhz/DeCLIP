@@ -1,5 +1,5 @@
 # DeCLIP: Decoupled Learning for Open-Vocabulary Dense Perception
-This repository is the official PyTorch implementation of [DeCLIP](). 
+This repository is the official PyTorch implementation of [DeCLIP](https://arxiv.org/abs/2505.04410). 
 
 
 ![Alt text](DeCLIP.png)
@@ -74,10 +74,13 @@ Our work builds upon the method and codebase of [CLIPSelf](https://github.com/wu
 ## 🙏 Citing DeCLIP 
 
 ```bibtex
-
+@misc{wang2025declipdecoupledlearningopenvocabulary,
+      title={DeCLIP: Decoupled Learning for Open-Vocabulary Dense Perception}, 
+      author={Junjie Wang and Bin Chen and Yulin Li and Bin Kang and Yichi Chen and Zhuotao Tian},
+      year={2025},
+      eprint={2505.04410},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2505.04410}, 
+}
 ```
-
-<!-- ## Checkpoints  
-| Model name     |  Checkpoint |
-| ------------   | :------------: |
-| DeCLIP-EVA-L-14-336-llava624k-epoch1 |  [model](https://drive.google.com/file/d/1FpezNwkNsVyhuvSzAjp73bNADtYgzmxe/view?usp=sharing) | -->
