@@ -26,78 +26,10 @@ def freeze_parameters(model,args):
             param.requires_grad = False
     return model
 
-# def build_vfm(name):
-#     sam_ckpts = {
-#         "sam-B": "sam_vit_b_01ec64.pth",
-#         "sam-L": "sam_vit_l_0b3195.pth", 
-#     }
-    
-#     dinov2_ckpts = {
-#         "dinov2-L": "dinov2_vitl14_reg",
-#         "dinov2-B": "dinov2_vitb14_reg",
-#     }
-
-#     dino_ckpts = {
-#         "dino-B-8": "dino_vitb8",
-#         "dino-B-16": "dino_vitb16",
-#     }
-
-#     vfm = None
-
-#     # SAM
-#     if name.startswith("sam"):
-#         if name in sam_ckpts:
-#             vit_type = "vit_b" if "B" in name else "vit_l"
-#             checkpoint_name = sam_ckpts[name]
-#             try:
-#                 vfm = sam_model_registry[vit_type](checkpoint=checkpoint_name).half()
-#             except Exception as e:
-#                 raise RuntimeError(f"Failed to load SAM model '{name}' with checkpoint '{checkpoint_name}': {e}")
-#         else:
-#             raise NotImplementedError(f"VLM model '{name}' not supported under SAM category.")
-
-#     # DINOv2
-#     elif name.startswith("dinov2"):
-#         if name in dinov2_ckpts:
-#             model_name = dinov2_ckpts[name]
-#             try:
-#                 vfm = torch.hub.load(
-#                     'facebookresearch/dinov2',
-#                     model_name,
-#                     source='github'  
-#                 ).half()
-#             except Exception as e:
-#                 raise RuntimeError(f"Failed to load DINOv2 model '{name}': {e}")
-#         else:
-#             raise NotImplementedError(f"VLM model '{name}' not supported under DINOv2 category.")
-
-#     # DINO
-#     elif name.startswith("dino"):
-#         if name in dino_ckpts:
-#             model_name = dino_ckpts[name]
-#             try:
-#                 vfm = torch.hub.load(
-#                     'facebookresearch/dino',
-#                     model_name,
-#                     source='github'
-#                 ).half()
-#             except Exception as e:
-#                 raise RuntimeError(f"Failed to load DINO model '{name}': {e}")
-#         else:
-#             raise NotImplementedError(f"VLM model '{name}' not supported under DINO category.")
-
-#     else:
-#         raise NotImplementedError(f"VLM model '{name}' not supported.")
-
-#     for p in vfm.parameters():
-#         p.requires_grad = False
-
-#     return vfm
-
 def build_vfm(name):
     sam_ckpts = {
-        "sam-B": "/mnt/SSD8T/home/wjj/code/ProxyCLIP/sam_ckpts/sam_vit_b_01ec64.pth",
-        "sam-L": "/mnt/SSD8T/home/wjj/code/ProxyCLIP/sam_ckpts/sam_vit_l_0b3195.pth", 
+        "sam-B": "sam_vit_b_01ec64.pth",
+        "sam-L": "sam_vit_l_0b3195.pth", 
     }
     
     dinov2_ckpts = {
@@ -109,47 +41,59 @@ def build_vfm(name):
         "dino-B-8": "dino_vitb8",
         "dino-B-16": "dino_vitb16",
     }
+
     vfm = None
+
+    # SAM
     if name.startswith("sam"):
         if name in sam_ckpts:
             vit_type = "vit_b" if "B" in name else "vit_l"
-            checkpoint_path = sam_ckpts[name]
+            checkpoint_name = sam_ckpts[name]
             try:
-                vfm = sam_model_registry[vit_type](checkpoint=checkpoint_path).half()
+                vfm = sam_model_registry[vit_type](checkpoint=checkpoint_name).half()
             except Exception as e:
-                raise RuntimeError(f"Failed to load SAM model '{name}' with checkpoint '{checkpoint_path}': {e}")
+                raise RuntimeError(f"Failed to load SAM model '{name}' with checkpoint '{checkpoint_name}': {e}")
         else:
             raise NotImplementedError(f"VLM model '{name}' not supported under SAM category.")
-    
+
+    # DINOv2
     elif name.startswith("dinov2"):
         if name in dinov2_ckpts:
             model_name = dinov2_ckpts[name]
-            hub_path = '/mnt/SSD8T/home/wjj/.cache/torch/hub/facebookresearch_dinov2_main'
             try:
-                vfm = torch.hub.load(hub_path, model_name, source='local').half()
+                vfm = torch.hub.load(
+                    'facebookresearch/dinov2',
+                    model_name,
+                    source='github'  
+                ).half()
             except Exception as e:
                 raise RuntimeError(f"Failed to load DINOv2 model '{name}': {e}")
         else:
             raise NotImplementedError(f"VLM model '{name}' not supported under DINOv2 category.")
-    
+
+    # DINO
     elif name.startswith("dino"):
         if name in dino_ckpts:
             model_name = dino_ckpts[name]
-            hub_path = '/mnt/SSD8T/home/wjj/.cache/torch/hub/facebookresearch_dino_main'
             try:
-                vfm = torch.hub.load(hub_path, model_name, source='local').half()
+                vfm = torch.hub.load(
+                    'facebookresearch/dino',
+                    model_name,
+                    source='github'
+                ).half()
             except Exception as e:
                 raise RuntimeError(f"Failed to load DINO model '{name}': {e}")
         else:
             raise NotImplementedError(f"VLM model '{name}' not supported under DINO category.")
-    
+
     else:
         raise NotImplementedError(f"VLM model '{name}' not supported.")
 
     for p in vfm.parameters():
         p.requires_grad = False
-    
+
     return vfm
+
 
 def get_freeze_keys(args):
     if args.model=="ViT-B-16":

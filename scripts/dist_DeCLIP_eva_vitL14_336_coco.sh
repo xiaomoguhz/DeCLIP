@@ -1,6 +1,6 @@
-data_root=/mnt/SSD8T/home/wjj/dataset/standard_coco
-pretrain_ckpt=/mnt/SSD8T/home/wjj/code/my_CLIPSelf/checkpoints/EVA02_CLIP_L_336_psz14_s6B.pt
-exp_name=evaL_dinov2L_qq_560
+data_root=""  # path to your coco dataset
+pretrain_ckpt=""  # path to your EVA-CLIP checkpoint
+exp_name=""  # output folder name
 vfm_type=dinov2-L # {sam-B, sam-L, dinov2-B, dinov2-L, dino-B-8, dino-B-16}
 
 # always keep total batchsize=16 , otherwise, Linear scaling the learning rate

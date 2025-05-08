@@ -5,10 +5,10 @@ from torchvision.transforms import Compose, ToTensor, Normalize, CenterCrop, Res
 
 if __name__ == "__main__":
     with torch.no_grad():
-        img_path = "demo_images/horses.jpg"
+        img_path = "path_to_your_img"
         device = "cuda:0"
         output_dir = "vis"
-        model = create_model("EVA02-CLIP-L-14-336","eva",precision="fp32",device=device,pretrained_image=False,pretrained_hf=True,cache_dir="/mnt/SSD8T/home/wjj/code/decoupledCLIP/logs/catseg_model/eva_L_dinov2_560_0.05_1.0/checkpoints/epoch_6.pt",).eval().to(device)
+        model = create_model("EVA02-CLIP-L-14-336","eva",precision="fp32",device=device,pretrained_image=False,pretrained_hf=True,cache_dir="path_to_your_trained_declip",).eval().to(device)
         mean = [0.48145466, 0.4578275, 0.40821073]
         std = [0.26862954, 0.26130258, 0.27577711]
         normalize_transform = Normalize(mean=mean, std=std)

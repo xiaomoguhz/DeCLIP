@@ -56,7 +56,7 @@ def vis_feat_corr(vfm="sam"):
         vfm = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitb14_reg').half().to(device)
     else:
         resolution = 1024
-        vfm = sam_model_registry["vit_b"](checkpoint="/mnt/SSD8T/home/wjj/code/ProxyCLIP/sam_ckpts/sam_vit_b_01ec64.pth").half().to(device)
+        vfm = sam_model_registry["vit_b"](checkpoint="").half().to(device)
     vfm_transform=det_image_transform(
             resolution,
             is_train=False,
