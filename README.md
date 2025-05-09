@@ -5,7 +5,7 @@ This repository is the official PyTorch implementation of [DeCLIP](https://arxiv
 ## Video
 <p align="center" width="80%">
   <a href="https://youtu.be/hr2OEZL5Kgs?si=EhzALIpGmLgQyVbB" target="_blank">
-    <img src="https://github.com/xiaomoguhz/DeCLIP/cover.png" alt="Stanford-Alpaca" style="width: 80%; min-width: 300px; display: block; margin: auto;">
+    <img src="cover.png" alt="DeCLIP" style="width:100%; min-width: 300px; display: block; margin: auto;">
   </a>
 </p>
 
