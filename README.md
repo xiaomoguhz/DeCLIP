@@ -2,6 +2,13 @@
 This repository is the official PyTorch implementation of [DeCLIP](https://arxiv.org/abs/2505.04410). 
 
 
+## Video
+<p align="center" width="80%">
+  <a href="https://youtu.be/hr2OEZL5Kgs?si=EhzALIpGmLgQyVbB" target="_blank">
+    <img src="https://github.com/xiaomoguhz/DeCLIP/cover.png" alt="Stanford-Alpaca" style="width: 80%; min-width: 300px; display: block; margin: auto;">
+  </a>
+</p>
+
 ![Alt text](DeCLIP.png)
 ## Overview
 DeCLIP is an unsupervised fine-tuning framework for open-vocabulary dense perception tasks, which decouples CLIP's self-attention module to obtain "content" and "context" features, learning from itself and vision foundation models respectively to enhance local discriminability and spatial consistency.
