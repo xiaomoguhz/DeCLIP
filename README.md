@@ -2,12 +2,6 @@
 This repository is the official PyTorch implementation of [DeCLIP](https://arxiv.org/abs/2505.04410). 
 
 
-## Video
-<p align="center" width="80%">
-  <a href="https://youtu.be/hr2OEZL5Kgs?si=EhzALIpGmLgQyVbB" target="_blank">
-    <img src="cover.png" alt="DeCLIP" style="width:100%; min-width: 300px; display: block; margin: auto;">
-  </a>
-</p>
 
 ![Alt text](DeCLIP.png)
 ## Overview
@@ -15,6 +9,13 @@ DeCLIP is an unsupervised fine-tuning framework for open-vocabulary dense percep
 ## 🎉News
 * **[2025.03.01]**  We will update the complete training and inference code as well as weights. Stay tuned!
 * **[2025.02.27]**  Our work has been accepted at CVPR 2025.
+## Video
+<p align="center" width="80%">
+  <a href="https://youtu.be/hr2OEZL5Kgs?si=EhzALIpGmLgQyVbB" target="_blank">
+    <img src="cover.png" alt="DeCLIP" style="width:70%; min-width: 300px; display: block; margin: auto;">
+  </a>
+</p>
+
 ## 🔥TODO
 - [x] Initialize Project
 - [x] Release the training and inference code of DeCLIP
