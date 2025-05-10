@@ -8,21 +8,20 @@ This repository is the official PyTorch implementation of [DeCLIP](https://arxiv
 DeCLIP is an unsupervised fine-tuning framework for open-vocabulary dense perception tasks, which decouples CLIP's self-attention module to obtain "content" and "context" features, learning from itself and vision foundation models respectively to enhance local discriminability and spatial consistency.
 ## Video & Performance
 
-<div style="display: flex; align-items: center; justify-content: space-between;">
-
-<!-- 左侧视频 -->
-<div style="flex: 1; text-align: center; margin-right: 10px;">
-  <a href="https://youtu.be/hr2OEZL5Kgs?si=EhzALIpGmLgQyVbB" target="_blank">
-    <img src="assets/cover.png" alt="DeCLIP Video" style="width: 100%; max-width: 400px; display: block; margin: auto;">
-  </a>
-</div>
-
-<!-- 右侧性能图 -->
-<div style="flex: 1; text-align: center; margin-left: 10px;">
-  <img src="assets/performance.png" alt="Performance Chart" style="width: 100%; max-width: 400px; display: block; margin: auto;">
-</div>
-
-</div>
+<table style="border: none; width: 100%;">
+  <tr>
+    <!-- 左侧视频 -->
+    <td align="center" style="width: 50%; border: none;">
+      <a href="https://youtu.be/hr2OEZL5Kgs?si=EhzALIpGmLgQyVbB" target="_blank">
+        <img src="assets/cover.png" alt="DeCLIP Video" style="width: 90%; max-width: 400px;">
+      </a>
+    </td>
+    <!-- 右侧性能图 -->
+    <td align="center" style="width: 50%; border: none;">
+      <img src="assets/performance.png" alt="Performance Chart" style="width: 90%; max-width: 400px;">
+    </td>
+  </tr>
+</table>
 
 ## 🎉News
 * **[2025.05.07]**  We will update the complete training and inference code as well as weights. Stay tuned!
