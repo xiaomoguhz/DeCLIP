@@ -7,11 +7,11 @@ This repository is the official PyTorch implementation of [DeCLIP](https://arxiv
 ![Alt text](assets/DeCLIP.png)
 DeCLIP is an unsupervised fine-tuning framework for open-vocabulary dense perception tasks, which decouples CLIP's self-attention module to obtain "content" and "context" features, learning from itself and vision foundation models respectively to enhance local discriminability and spatial consistency.
 ## Contributions
-## Contributions
+
 
 <p align="center">
-  <img src="assets/problem.png" alt="Problem Analysis" width="510">
-  <img src="assets/performance.png" alt="Performance Comparison" width="190">
+  <img src="assets/problem.png" alt="Problem Analysis" width="550">
+  <img src="assets/performance.png" alt="Performance Comparison" width="230" >
 </p>
 
 1. We analyze CLIP and find that its limitation in open-vocabulary dense prediction arises from **image tokens failing to aggregate information from spatially or semantically related regions**.
