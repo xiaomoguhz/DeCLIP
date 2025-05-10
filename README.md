@@ -3,25 +3,25 @@ This repository is the official PyTorch implementation of [DeCLIP](https://arxiv
 
 
 
-![Alt text](assets/DeCLIP.png)
 ## Overview
+![Alt text](assets/DeCLIP.png)
 DeCLIP is an unsupervised fine-tuning framework for open-vocabulary dense perception tasks, which decouples CLIP's self-attention module to obtain "content" and "context" features, learning from itself and vision foundation models respectively to enhance local discriminability and spatial consistency.
-## Video & Performance
+## Contributions
+<p align="center" style="display: flex; justify-content: center; gap: 10px;">
+  <img src="assets/problem.png" alt="Problem Analysis" style="max-width: 75%; height: auto;">
+  <img src="assets/performance.png" alt="Performance Comparison" style="max-width: 25%; height: auto;">
+</p>
 
-<table style="border: none; width: 100%;">
-  <tr>
-    <!-- 左侧视频 -->
-    <td align="center" style="width: 50%; border: none;">
-      <a href="https://youtu.be/hr2OEZL5Kgs?si=EhzALIpGmLgQyVbB" target="_blank">
-        <img src="assets/cover.png" alt="DeCLIP Video" style="width: 90%; max-width: 400px;">
-      </a>
-    </td>
-    <!-- 右侧性能图 -->
-    <td align="center" style="width: 50%; border: none;">
-      <img src="assets/performance.png" alt="Performance Chart" style="width: 90%; max-width: 400px;">
-    </td>
-  </tr>
-</table>
+1. We analyze CLIP and find that its limitation in open-vocabulary dense prediction arises from **image tokens failing to aggregate information from spatially or semantically related regions**.
+2. To address this issue, we propose DeCLIP, a simple yet effective unsupervised fine-tuning framework, to enhance the discriminability and spatial consistency of CLIP’s local features via **a decoupled feature enhancement strategy**.
+3. DeCLIP outperforms previous state-of-the-art models on a broad range of open-vocabulary dense prediction benchmarks.
+
+## Video
+<p align="center" width="80%">
+  <a href="https://youtu.be/hr2OEZL5Kgs?si=EhzALIpGmLgQyVbB" target="_blank">
+    <img src="assets/cover.png" alt="DeCLIP Video" style="width: 80%; min-width: 300px; display: block; margin: auto;">
+  </a>
+</p>
 
 ## 🎉News
 * **[2025.05.07]**  We will update the complete training and inference code as well as weights. Stay tuned!
