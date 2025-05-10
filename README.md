@@ -3,18 +3,30 @@ This repository is the official PyTorch implementation of [DeCLIP](https://arxiv
 
 
 
-![Alt text](DeCLIP.png)
+![Alt text](assets/DeCLIP.png)
 ## Overview
 DeCLIP is an unsupervised fine-tuning framework for open-vocabulary dense perception tasks, which decouples CLIP's self-attention module to obtain "content" and "context" features, learning from itself and vision foundation models respectively to enhance local discriminability and spatial consistency.
-## 🎉News
-* **[2025.03.01]**  We will update the complete training and inference code as well as weights. Stay tuned!
-* **[2025.02.27]**  Our work has been accepted at CVPR 2025.
-## Video
-<p align="center" width="80%">
+## Video & Performance
+
+<div style="display: flex; align-items: center; justify-content: space-between;">
+
+<!-- 左侧视频 -->
+<div style="flex: 1; text-align: center; margin-right: 10px;">
   <a href="https://youtu.be/hr2OEZL5Kgs?si=EhzALIpGmLgQyVbB" target="_blank">
-    <img src="cover.png" alt="DeCLIP" style="width:70%; min-width: 300px; display: block; margin: auto;">
+    <img src="assets/cover.png" alt="DeCLIP Video" style="width: 100%; max-width: 400px; display: block; margin: auto;">
   </a>
-</p>
+</div>
+
+<!-- 右侧性能图 -->
+<div style="flex: 1; text-align: center; margin-left: 10px;">
+  <img src="assets/performance.png" alt="Performance Chart" style="width: 100%; max-width: 400px; display: block; margin: auto;">
+</div>
+
+</div>
+
+## 🎉News
+* **[2025.05.07]**  We will update the complete training and inference code as well as weights. Stay tuned!
+* **[2025.02.27]**  Our work has been accepted at CVPR 2025.
 
 ## 🔥TODO
 - [x] Initialize Project
@@ -82,13 +94,10 @@ Our work builds upon the method and codebase of [CLIPSelf](https://github.com/wu
 ## 🙏 Citing DeCLIP 
 
 ```bibtex
-@misc{wang2025declipdecoupledlearningopenvocabulary,
-      title={DeCLIP: Decoupled Learning for Open-Vocabulary Dense Perception}, 
-      author={Junjie Wang and Bin Chen and Yulin Li and Bin Kang and Yichi Chen and Zhuotao Tian},
-      year={2025},
-      eprint={2505.04410},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2505.04410}, 
+@article{wang2025declip,
+  title={DeCLIP: Decoupled Learning for Open-Vocabulary Dense Perception},
+  author={Wang, Junjie and Chen, Bin and Li, Yulin and Kang, Bin and Chen, Yichi and Tian, Zhuotao},
+  journal={arXiv preprint arXiv:2505.04410},
+  year={2025}
 }
 ```
