@@ -8,10 +8,10 @@ configs_list = [
     './configs/cfg_context60.py',
     './configs/cfg_voc20.py',
     './configs/cfg_voc21.py'
-    # './configs/cfg_context459.py',
-    # './configs/cfg_ade847.py',
 ]
 
 for config in configs_list:
+    config_name = os.path.basename(config).replace('cfg_', '').replace('.py', '')
+    work_dir = f"logs/{config_name}"
     print(f"Running {config}")
-    os.system(f"bash ./dist_test.sh {config}")
+    os.system(f"python eval.py --config {config} --work-dir {work_dir}")

@@ -1,119 +1,115 @@
-<div align="center">
-
-<h1>ProxyCLIP: Proxy Attention Improves CLIP for Open-Vocabulary Segmentation</h1>
-
-<div>
-    <a href='https://mc-lan.github.io/' target='_blank'>Mengcheng Lan</a><sup>1</sup>&emsp;
-    <a href='https://chaofengc.github.io/' target='_blank'>Chaofeng Chen</a><sup>1</sup>&emsp;
-    <a href='https://keyiping.wixsite.com/index' target='_blank'>Yiping Ke</a><sup>2</sup>&emsp;
-    <a href='https://scholar.google.com.hk/citations?user=q4lnWaoAAAAJ&hl=en&inst=8669986779262753491&oi=ao' target='_blank'>Xinjiang Wang</a><sup>3</sup>&emsp;
-    <a href='https://scholar.google.com.hk/citations?user=PnNAAasAAAAJ&hl=en' target='_blank'>Litong Feng</a><sup>3</sup>&emsp;
-    <a href='https://www.statfe.com/' target='_blank'>Wayne Zhang</a><sup>3,4</sup>&emsp;
-</div>
-<div>
-    <sup>1</sup>S-Lab, Nanyang Technological University&emsp; 
-    <sup>2</sup>CCDS, Nanyang Technological University&emsp; 
-    <sup>3</sup>SenseTime Research&emsp;
-</div>
-<div>
-    <sup>4</sup>Guangdong Provincial Key Laboratory of Digital Grid Technology&emsp;
-</div>
-
-<div>
-    <strong>Accepted to ECCV 2024</strong>
-</div>
-
-<div>
-    <h4 align="center">
-        • <a href="https://arxiv.org/abs/2408.04883" target='_blank'>[arXiv]</a> •
-    </h4>
-</div>
-
-<img src="assets/framework.jpg" width="700px"/>
-
-</div>
-
-## Abstract
-> *Open-vocabulary semantic segmentation requires models to effectively integrate visual representations with open-vocabulary semantic labels. While Contrastive Language-Image Pre-training (CLIP) models shine in recognizing visual concepts from text, they often struggle with segment coherence due to their limited localization ability. In contrast, Vision Foundation Models (VFMs) excel at acquiring spatially consistent local visual representations, yet they fall short in semantic understanding. This paper introduces ProxyCLIP, an innovative framework designed to harmonize the strengths of both CLIP and VFMs, facilitating enhanced open-vocabulary semantic segmentation. ProxyCLIP leverages the spatial feature correspondence from VFMs as a form of proxy attention to augment CLIP, thereby inheriting the VFMs' robust local consistency and maintaining CLIP's exceptional zero-shot transfer capacity. We propose an adaptive normalization and masking strategy to get the proxy attention from VFMs, allowing for adaptation across different VFMs. Remarkably, as a training-free approach, ProxyCLIP significantly improves the average mean Intersection over Union (mIoU) across eight benchmarks from 40.3 to 44.4, showcasing its exceptional efficacy in bridging the gap between spatial precision and semantic richness for the open-vocabulary segmentation task.*
-
-## Dependencies and Installation
+# DeCLIP: Decoupled Learning for Open-Vocabulary Dense Perception
+This branch of the repository is the official PyTorch implementation of [DeCLIP](https://arxiv.org/abs/2505.04410) for zero-shot image segmentation.
 
 
+## Contributions
+<p align="center">
+  <img src="assets/problem.png" alt="Problem Analysis" width="550">
+  <img src="assets/performance.png" alt="Performance Comparison" width="230" >
+</p>
+
+1. We analyze CLIP and find that its limitation in open-vocabulary dense prediction arises from **image tokens failing to aggregate information from spatially or semantically related regions**.
+2. To address this issue, we propose DeCLIP, a simple yet effective unsupervised fine-tuning framework, to enhance the discriminability and spatial consistency of CLIP’s local features via **a decoupled feature enhancement strategy**.
+3. DeCLIP outperforms previous state-of-the-art models on a broad range of open-vocabulary dense prediction benchmarks.
+
+## 🌈Environment
+- Linux with Python == 3.10.0
+- CUDA 11.7
+- The provided environment is suggested for reproducing our results, similar configurations may also work.
+
+## 🚀Quick Start
+
+#### 1. Create Conda Environment
 ```
-# git clone this repository
-git clone https://github.com/mc-lan/ProxyCLIP.git
-cd ProxyCLIP
-
-# create new anaconda env
-conda create -n ProxyCLIP python=3.10
-conda activate ProxyCLIP
-
-# install torch and dependencies
+conda create -n DeCLIP_ZSSS python=3.10.0
+conda activate DeCLIP_ZSSS
 pip install -r requirements.txt
+pip install -e . -v
+```
+#### 2. Install MMCV
+```
+# Replace {cu_version} and {torch_version} with your CUDA and PyTorch versions
+pip install mmcv==2.1.0 -f https://download.openmmlab.com/mmcv/dist/{cu_version}/{torch_version}/index.html
+
+# For example, if using CUDA 11.7 and PyTorch 2.0:
+pip install mmcv==2.1.0 -f https://download.openmmlab.com/mmcv/dist/cu117/torch2.0/index.html
 ```
 
-## Datasets
+#### 3. Dataset Preparation
+We follow previous works for preparing datasets. Thanks to [SCLIP](https://github.com/wangf3014/SCLIP), [ClearCLIP](https://github.com/mc-lan/ClearCLIP/tree/main), and [ProxyCLIP](https://github.com/mc-lan/ProxyCLIP/tree/main) for their open-source contributions, as detailed below:
 We include the following dataset configurations in this repo: 
-1) `With background class`: PASCAL VOC, PASCAL Context, PASCAL Context 459 (PC459), Cityscapes, ADE20k, ADE847, and COCO-Stuff164k, 
+1) `With background class`: PASCAL VOC (21), PASCAL Context (60), Cityscapes, ADE20k, and COCO-Stuff164k, 
 2) `Without background class`: VOC20, Context59 (i.e., PASCAL VOC and PASCAL Context without the background category), and COCO-Object.
 
-For PASCAL Context 459 and ADE847, please follow the [CAT-Seg](https://github.com/KU-CVLAB/CAT-Seg/tree/main/datasets) to prepare the datasets.
-For the other datasets, please follow the [MMSeg data preparation document](https://github.com/open-mmlab/mmsegmentation/blob/main/docs/en/user_guides/2_dataset_prepare.md) to download and pre-process the datasets. 
-The COCO-Object dataset can be converted from COCO-Stuff164k by executing the following command:
+Please follow the [MMSeg data preparation document](https://github.com/open-mmlab/mmsegmentation/blob/main/docs/en/user_guides/2_dataset_prepare.md) to download and pre-process the datasets. 
 
+The COCO-Object dataset can be converted from COCO-Stuff164k by executing the following command:
 ```
 python datasets/cvt_coco_object.py PATH_TO_COCO_STUFF164K -o PATH_TO_COCO164K
 ```
 
-## Quick Inference
+#### 4. Evaluation
+
+Please download our pre-trained DeCLIP weights from this [Link](https://huggingface.co/xiaomoguhzz/DeCLIP_evab_dinov2B_csa_560_0.25_seg) and prepare it as follows:
+```text
+DeCLIP_ZSSS/
+├── checkpoints
+    ├── DeCLIP_evab_dinov2B_csa_560_0.25_seg
 ```
+
+#### 5. Modify the Necessary Parameters.
+Before starting the evaluation, please modify the paths in the config file, for example, in `configs/cfg_ade20k.py`:
+```
+# model settings
+model = dict(
+    name_path='configs/cls_ade20k.txt',
+    type='DeCLIPSegmentation',
+    clip_type='EVA02-CLIP-B-16',
+     pretrained='eva',
+    checkpoint="checkpoints/evab_dinov2B_csa_560_0.25_seg.pt",
+    mode="csa",
+)
+
+# dataset settings
+dataset_type = 'ADE20KDataset'
+data_root = 'path_to_your/ADEChallengeData2016'
+
+``` 
+After modifying the dataset path, run the script to verify DeCLIP's performance on ADE20K.
+
+``` 
+CUDA_VISIBLE_DEVICES=0 python eval.py --config configs/cfg_ade20k.py --work-dir logs/ade20k
+``` 
+The verification of other datasets is the same; you only need to modify the different `--config` and `--work-dir`.
+
+If you are interested in visualizing the inference results, you can easily do so through the mmseg interface by modifying the `configs/base_config.py` file as follows:
+``` 
+default_hooks = dict(
+    timer=dict(type='IterTimerHook'),
+    logger=dict(type='LoggerHook', interval=50, log_metric_by_epoch=False),
+    param_scheduler=dict(type='ParamSchedulerHook'),
+    checkpoint=dict(type='CheckpointHook', by_epoch=False, interval=2000),
+    sampler_seed=dict(type='DistSamplerSeedHook'),
+    visualization=dict(type='SegVisualizationHook', 
+                       draw=True, # change this to True
+                       interval=100))
+``` 
+Then the reasoning visualization will be saved in the  `--work-dir` folder. 
+#### 5. Quickly experience DeCLIP's zero-shot image segmentation capability.
+``` 
 python demo.py
-```
+``` 
 
+## ❤️ Acknowledgement
+Our work builds upon the method and codebase of [CLIPSelf](https://github.com/wusize/CLIPSelf), [ClearCLIP](https://github.com/mc-lan/ClearCLIP), [CAT-Seg](https://github.com/cvlab-kaist/CAT-Seg), [EVA-CLIP](https://github.com/baaivision/EVA/tree/master/EVA-CLIP), [OpenCLIP](https://github.com/mlfoundations/open_clip/tree/v2.16.0). We sincerely thank the authors for their remarkable contributions, which provided an essential foundation for our research.
 
-## Model evaluation
-Please modify some settings in `configs/base_config.py` before running the evaluation.
+## 🙏 Citing DeCLIP 
 
-For SAM and MAE, please download the checkpoints from [SAM](https://github.com/facebookresearch/segment-anything#model-checkpoints) and [MAE](https://github.com/facebookresearch/mae).
-
-
-
-Single-GPU:
-
-```
-python eval.py --config ./config/cfg_DATASET.py --workdir YOUR_WORK_DIR
-```
-
-Multi-GPU:
-```
-bash ./dist_test.sh ./config/cfg_DATASET.py
-```
-
-Evaluation on all datasets:
-```
-python eval_all.py
-```
-Results will be saved in `results.xlsx`.
-
-## Citation
-
-```
-@inproceedings{lan2024proxyclip,
-      title={ProxyCLIP: Proxy Attention Improves CLIP for Open-Vocabulary Segmentation}, 
-      author={Mengcheng Lan and Chaofeng Chen and Yiping Ke and Xinjiang Wang and Litong Feng and Wayne Zhang},
-      booktitle={ECCV},
-      year={2024},
+```bibtex
+@article{wang2025declip,
+  title={DeCLIP: Decoupled Learning for Open-Vocabulary Dense Perception},
+  author={Wang, Junjie and Chen, Bin and Li, Yulin and Kang, Bin and Chen, Yichi and Tian, Zhuotao},
+  journal={arXiv preprint arXiv:2505.04410},
+  year={2025}
 }
 ```
-
-## License
-This project is licensed under <a rel="license" href="https://github.com/mc-lan/SmooSeg/blob/master/LICENSE">NTU S-Lab License 1.0</a>. Redistribution and use should follow this license.
-
-
-## Acknowledgement
-This study is supported under the RIE2020 Industry Align- ment Fund – Industry Collaboration Projects (IAF-ICP) Funding Initiative, as well as cash and in-kind contribution from the industry partner(s).
-
-This implementation is based on [OpenCLIP](https://github.com/mlfoundations/open_clip) and [SCLIP](https://github.com/wangf3014/SCLIP). Thanks for the awesome work.
-
-## Contact
-If you have any questions, please feel free to reach out at `lanm0002@e.ntu.edu.sg`.

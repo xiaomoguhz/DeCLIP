@@ -1,14 +1,9 @@
 # base configurations
 model = dict(
-    type='ProxyCLIPSegmentation',
-    clip_type='openai',
-    model_type='ViT-B/16',
-    vfm_model='dino',   # sam, mae, dino, dinov2
-    checkpoint=None,
+    type='CLIPselfSegmentation',
+    clip_type='EVA02-CLIP-B-16',
+    checkpoint='',
 )
-# ('openai', 'ViT-B/16')
-# ('openai', 'ViT-L-14')
-# ('laion2b_s32b_b79k', 'ViT-H-14')
 
 test_evaluator = dict(type='IoUMetric', iou_metrics=['mIoU'])
 
@@ -34,4 +29,6 @@ default_hooks = dict(
     param_scheduler=dict(type='ParamSchedulerHook'),
     checkpoint=dict(type='CheckpointHook', by_epoch=False, interval=2000),
     sampler_seed=dict(type='DistSamplerSeedHook'),
-    visualization=dict(type='SegVisualizationHook', interval=5))
+    visualization=dict(type='SegVisualizationHook', 
+                       draw=False,
+                       interval=100))

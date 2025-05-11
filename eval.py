@@ -1,16 +1,15 @@
 import os
 import argparse
-import proxyclip_segmentor
+import declip_segmentor as declip_segmentor
+from seg_utils import append_experiment_result
 import custom_datasets
-from myutils import append_experiment_result
-
 from mmengine.config import Config
 from mmengine.runner import Runner
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description='SCLIP evaluation with MMSeg')
-    parser.add_argument('--config', default='./configs/cfg_coco_stuff164k.py')
+        description='DeCLIP evaluation with MMSeg')
+    parser.add_argument('--config', '-c', default='./configs/cfg_coco_stuff164k.py')
     parser.add_argument('--work-dir', default='./work_logs/')
     parser.add_argument(
         '--show', action='store_true', help='show prediction results')
@@ -55,7 +54,6 @@ def trigger_visualization_hook(cfg, args):
 
 def main():
     args = parse_args()
-
     cfg = Config.fromfile(args.config)
     cfg.launcher = args.launcher
     cfg.work_dir = args.work_dir
@@ -64,11 +62,9 @@ def main():
     runner = Runner.from_cfg(cfg)
     results = runner.test()
 
-    results.update({'Model': cfg.model.model_type,
-                    'CLIP': cfg.model.clip_type,
-                    'VFM': cfg.model.vfm_model,
-                    'Dataset': cfg.dataset_type})
-
+    results.update({'CLIP': cfg.model.clip_type,
+                    'Dataset': cfg.dataset_type,
+                    'Ckpt':cfg.model.checkpoint})
     if runner.rank == 0:
         append_experiment_result('results.xlsx', [results])
 

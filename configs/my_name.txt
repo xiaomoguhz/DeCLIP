@@ -1,3 +1,0 @@
-buildings, clutter
-roads, cars
-vegetation, trees

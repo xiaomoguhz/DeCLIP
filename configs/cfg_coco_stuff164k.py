@@ -2,7 +2,12 @@ _base_ = './base_config.py'
 
 # model settings
 model = dict(
-    name_path='./configs/cls_coco_stuff.txt'
+    name_path='configs/cls_coco_stuff.txt',
+    type='DeCLIPSegmentation',
+    clip_type='EVA02-CLIP-B-16',
+     pretrained='eva',
+     checkpoint="checkpoints/evab_dinov2B_csa_560_0.25_seg.pt",
+    mode="csa",
 )
 
 # dataset settings
@@ -11,10 +16,9 @@ data_root = ''
 
 test_pipeline = [
     dict(type='LoadImageFromFile'),
-    dict(type='Resize', scale=(2048, 336), keep_ratio=True),
+    dict(type='Resize', scale=(4096, 448), keep_ratio=True),
     dict(type='LoadAnnotations'),
-    dict(type='PackSegInputs')
-]
+    dict(type='PackSegInputs')]
 
 test_dataloader = dict(
     batch_size=1,
@@ -25,5 +29,6 @@ test_dataloader = dict(
         type=dataset_type,
         data_root=data_root,
         data_prefix=dict(
-            img_path='images/val2017', seg_map_path='annotations/val2017'),
+            img_path='path_to_your_coco/val2017', 
+            seg_map_path='path_to_your_coco/annotations/val2017'),
         pipeline=test_pipeline))

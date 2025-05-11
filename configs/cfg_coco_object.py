@@ -2,17 +2,22 @@ _base_ = './base_config.py'
 
 # model settings
 model = dict(
-    name_path='./configs/cls_coco_object.txt',
-    prob_thd=0.25,   # 0.25 OURS   0.1 CLIP
+    name_path='configs/cls_coco_object.txt',
+    type='DeCLIPSegmentation',
+    clip_type='EVA02-CLIP-B-16',
+     pretrained='eva',
+     checkpoint="checkpoints/evab_dinov2B_csa_560_0.25_seg.pt",
+    mode="csa",
+    prob_thd=0.2,
 )
 
 # dataset settings
 dataset_type = 'COCOObjectDataset'
-data_root = ''
+data_root = 'path_to_your/coco_obj'
 
 test_pipeline = [
     dict(type='LoadImageFromFile'),
-    dict(type='Resize', scale=(2048, 336), keep_ratio=True),
+    dict(type='Resize', scale=(2048, 448), keep_ratio=True),
     dict(type='LoadAnnotations'),
     dict(type='PackSegInputs')
 ]

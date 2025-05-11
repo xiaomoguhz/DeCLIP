@@ -1,0 +1,49 @@
+Metadata-Version: 2.4
+Name: open_clip_torch
+Version: 2.16.0
+Summary: OpenCLIP
+Home-page: https://github.com/mlfoundations/open_clip
+Author: 
+Author-email: 
+Keywords: CLIP pretrained
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Requires-Dist: torch==2.0.0
+Requires-Dist: torchvision==0.15.1
+Requires-Dist: regex==2024.5.15
+Requires-Dist: ftfy==6.2.0
+Requires-Dist: tqdm==4.65.2
+Requires-Dist: huggingface-hub==0.27.1
+Requires-Dist: sentencepiece==0.2.0
+Requires-Dist: protobuf==3.20.3
+Requires-Dist: fsspec==2024.6.0
+Requires-Dist: transformers
+Requires-Dist: pandas==2.2.2
+Requires-Dist: numpy==1.26.4
+Requires-Dist: matplotlib
+Requires-Dist: einops
+Requires-Dist: xformers==0.0.18
+Requires-Dist: timm==1.0.14
+Requires-Dist: tokenizers==0.21.0
+Requires-Dist: mmcv==2.1.0
+Requires-Dist: mmdet==3.3.0
+Requires-Dist: mmengine==0.10.4
+Requires-Dist: mmsegmentation==1.2.2
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
