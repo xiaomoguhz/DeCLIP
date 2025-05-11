@@ -77,6 +77,9 @@ class DeCLIP:
             student_context_similarity=torch.einsum("b c m, b c n -> b m n", context, context)
         elif args.mode == "csa_vfm_distill":
             q_feature, k_feature = context
+            N, _ = q_feature.shape[1:]
+            q_feature = q_feature.transpose(0, 1).contiguous().view(N, B, -1).transpose(0, 1)
+            k_feature = k_feature.transpose(0, 1).contiguous().view(N, B, -1).transpose(0, 1)
             q_feature = F.normalize(q_feature, dim=-1).transpose(-2,-1)
             k_feature = F.normalize(k_feature, dim=-1).transpose(-2,-1)
             student_context_similarity=(torch.einsum("b c m, b c n -> b m n", q_feature, q_feature)+torch.einsum("b c m, b c n -> b m n", k_feature, k_feature))/2.0
