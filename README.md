@@ -32,8 +32,8 @@ DeCLIP is an unsupervised fine-tuning framework for open-vocabulary dense percep
 ## 🔥TODO
 - [x] Initialize Project
 - [x] Release the training and inference code of DeCLIP
-- [x] Release evaluation code for DeCLIP in open vocabulary semantic segmentation based on VLM features
-- [ ] Release the code to integrate DeCLIP into CAT-Seg
+- [x] Release evaluation code for DeCLIP in open vocabulary semantic segmentation based on VLM features. Please refer to the [ZSSS branch](https://github.com/xiaomoguhz/DeCLIP/tree/ZSSS).
+- [x] Release the code to integrate DeCLIP into CAT-Seg. Please refer to the [DeCLIP_CATSeg](https://github.com/xiaomoguhz/DeCLIP/tree/DeCLIP_CATSeg).
 - [ ] Release the code to integrate DeCLIP into F-ViT and OV-DQUO
 ## 🌈Environment
 - Linux with Python == 3.10.0
@@ -89,8 +89,11 @@ bash scripts/dist_DeCLIP_eva_vitb16_coco.sh
 # dist training, EVA-CLIP, ViT-L-16-336
 bash scripts/dist_DeCLIP_eva_vitL14_336_coco.sh
 ```
-#### 5. Use DeCLIP for zero-shot image segmentation.
+### 5. Use DeCLIP for zero-shot image segmentation.
 Please refer to the [ZSSS branch](https://github.com/xiaomoguhz/DeCLIP/tree/ZSSS).
+
+### 6. Using DeCLIP for open-vocabulary semantic segmentation in the CAT-Seg model.
+Please refer to the [DeCLIP_CATSeg](https://github.com/xiaomoguhz/DeCLIP/tree/DeCLIP_CATSeg).
 ## ❤️ Acknowledgement
 Our work builds upon the method and codebase of [CLIPSelf](https://github.com/wusize/CLIPSelf), [ClearCLIP](https://github.com/mc-lan/ClearCLIP), [CAT-Seg](https://github.com/cvlab-kaist/CAT-Seg), [EVA-CLIP](https://github.com/baaivision/EVA/tree/master/EVA-CLIP), [OpenCLIP](https://github.com/mlfoundations/open_clip/tree/v2.16.0). We sincerely thank the authors for their remarkable contributions, which provided an essential foundation for our research.
 
