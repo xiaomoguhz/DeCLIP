@@ -1,0 +1,19 @@
+cityscapesScripts
+cmake
+Cython
+detectron2 @ git+https://github.com/facebookresearch/detectron2.git@ebe8b45437f86395352ab13402ba45b75b4d1ddb
+einops
+huggingface-hub==0.25.1
+lvis==0.5.3
+mmcls==0.25.0
+mmcv-full==1.7.0
+mmdet==2.28.1
+mmsegmentation==0.29.1
+ninja
+numpy==1.26.4
+Pillow==9.1.0
+timm==1.0.8
+tqdm==4.65.2
+xformers==0.0.18
+ftfy==6.2.0
+regex

@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: open_clip_torch
+Version: 2.16.0
+Summary: OpenCLIP
+Home-page: https://github.com/mlfoundations/open_clip
+Author: 
+Author-email: 
+Keywords: CLIP pretrained
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: requires-python
+Dynamic: summary
