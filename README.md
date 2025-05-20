@@ -41,8 +41,6 @@ In our current code, the default DeCLIP dense feature extraction method is set t
 CLIP_PRETRAINED: "EVA02-CLIP-B-16" 
 CACHE_DIR: "path_to_your_declip_ckpt"
 ``` 
-**Note:**  
-Due to an accidental operation in VSCode, the originally trained checkpoint was permanently deleted. The current checkpoint provided here was retrained and may have slight differences compared to the one reported in the paper. However, the overall performance remains consistent. Thank you for your understanding.
 
 To train the DeCLIP with CAT-Seg, please run the following script:
 ``` 
