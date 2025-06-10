@@ -66,6 +66,7 @@ sh eval.sh configs/eva_vitl_336.yaml 4 output/ MODEL.WEIGHTS path/to/trained_wei
 | Name    | ADE847 | Context459 | ADE150 | Context59 | VOC20 |   VOC21   | Checkpoint |
 | ------------- | :----: | :--------: | :----: | :-------: | :---: | :-------: | :--------: |
 | CATSeg_DeCLIP_EVA-B_DINOv2-B_csa_0.05_2.0 | 15.20 |    21.47      |    36.57    |     60.89      |   96.68     |     81.54      | [CAT-Seg](https://huggingface.co/xiaomoguhzz/CATSeg_DeCLIP_EVA-B_DINOv2-B_csa_0.05_2.0/tree/main), [DeCLIP](https://huggingface.co/xiaomoguhzz/DeCLIP_EVA-B_DINOv2-B_csa_0.05_2.0)|
+| CATSeg_DeCLIP_EVA-B_DINOv2-B_csa_0.05_2.0 | 17.96 |   25.89       |    40.59   |    63.79       |    97.76    |    83.67       | [CAT-Seg](https://huggingface.co/xiaomoguhzz/CATSeg_DeCLIP_EVA-L_DINOv2-L_csa_0.05_2.0), [DeCLIP](https://huggingface.co/xiaomoguhzz/DeCLIP_EVA-L_DINOv2-L_csa_0.05_2.0)|
 
 **Note:**  
 Due to an accidental operation in VSCode, the originally trained checkpoint was permanently deleted. The current checkpoint provided here was retrained and may have slight differences compared to the one reported in the paper. However, the overall performance remains consistent. Thank you for your understanding.
