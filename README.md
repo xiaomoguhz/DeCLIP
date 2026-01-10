@@ -100,10 +100,18 @@ Our work builds upon the method and codebase of [CLIPSelf](https://github.com/wu
 ## 🙏 Citing DeCLIP 
 
 ```bibtex
-@article{wang2025declip,
-  title={DeCLIP: Decoupled Learning for Open-Vocabulary Dense Perception},
+@inproceedings{wang2025declip,
+  title={Declip: Decoupled learning for open-vocabulary dense perception},
   author={Wang, Junjie and Chen, Bin and Li, Yulin and Kang, Bin and Chen, Yichi and Tian, Zhuotao},
-  journal={arXiv preprint arXiv:2505.04410},
+  booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
+  pages={14824--14834},
+  year={2025}
+}
+
+@article{wang2025generalized,
+  title={Generalized decoupled learning for enhancing open-vocabulary dense perception},
+  author={Wang, Junjie and Chen, Keyu and Li, Yulin and Chen, Bin and Zhao, Hengshuang and Qi, Xiaojuan and Tian, Zhuotao},
+  journal={arXiv preprint arXiv:2508.11256},
   year={2025}
 }
 ```
