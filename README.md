@@ -1,7 +1,7 @@
 # DeCLIP: Decoupled Learning for Open-Vocabulary Dense Perception
 This repository is the official PyTorch implementation of [DeCLIP](https://arxiv.org/abs/2505.04410) (CVPR 2025).
 
-Our journal extension, [**Generalized Decoupled Learning for Enhancing Open-Vocabulary Dense Perception**](https://arxiv.org/abs/2508.11256), has been accepted to **IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2026**.
+Our [extended version](https://arxiv.org/abs/2508.11256) has been accepted to **TPAMI**.
 
 ## Overview
 ![Alt text](assets/DeCLIP.png)
