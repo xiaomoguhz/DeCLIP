@@ -116,7 +116,6 @@ If you find this work useful, please cite the relevant papers below. GDeCLIP has
   author={Wang, Junjie and Chen, Keyu and Li, Yulin and Chen, Bin and Zhao, Hengshuang and Qi, Xiaojuan and Tian, Zhuotao},
   journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
   year={2026},
-  note={Accepted for publication},
   url={https://arxiv.org/abs/2508.11256}
 }
 ```
