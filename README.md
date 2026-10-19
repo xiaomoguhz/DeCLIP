@@ -1,7 +1,7 @@
 # DeCLIP: Decoupled Learning for Open-Vocabulary Dense Perception
-This repository is the official PyTorch implementation of [DeCLIP](https://arxiv.org/abs/2505.04410). 
+This repository is the official PyTorch implementation of [DeCLIP](https://arxiv.org/abs/2505.04410) (CVPR 2025).
 
-
+Our journal extension, [**Generalized Decoupled Learning for Enhancing Open-Vocabulary Dense Perception (GDeCLIP)**](https://arxiv.org/abs/2508.11256), has been accepted to **IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2026**.
 
 ## Overview
 ![Alt text](assets/DeCLIP.png)
@@ -26,6 +26,7 @@ DeCLIP is an unsupervised fine-tuning framework for open-vocabulary dense percep
 </p>
 
 ## 🎉News
+* **[2026.10]** Our journal extension, [GDeCLIP](https://arxiv.org/abs/2508.11256), has been accepted to **IEEE TPAMI**.
 * **[2025.05.07]**  We will update the complete training and inference code as well as weights. Stay tuned!
 * **[2025.02.27]**  Our work has been accepted at CVPR 2025.
 
@@ -97,7 +98,9 @@ Please refer to the [DeCLIP_CATSeg](https://github.com/xiaomoguhz/DeCLIP/tree/De
 ## ❤️ Acknowledgement
 Our work builds upon the method and codebase of [CLIPSelf](https://github.com/wusize/CLIPSelf), [ClearCLIP](https://github.com/mc-lan/ClearCLIP), [CAT-Seg](https://github.com/cvlab-kaist/CAT-Seg), [EVA-CLIP](https://github.com/baaivision/EVA/tree/master/EVA-CLIP), [OpenCLIP](https://github.com/mlfoundations/open_clip/tree/v2.16.0). We sincerely thank the authors for their remarkable contributions, which provided an essential foundation for our research.
 
-## 🙏 Citing DeCLIP 
+## 🙏 Citing DeCLIP and GDeCLIP
+
+If you find this work useful, please cite the relevant papers below. GDeCLIP has been accepted to IEEE TPAMI. The journal citation will be updated with the DOI, volume, and pages when available.
 
 ```bibtex
 @inproceedings{wang2025declip,
@@ -108,10 +111,12 @@ Our work builds upon the method and codebase of [CLIPSelf](https://github.com/wu
   year={2025}
 }
 
-@article{wang2025generalized,
+@article{wang2026generalized,
   title={Generalized decoupled learning for enhancing open-vocabulary dense perception},
   author={Wang, Junjie and Chen, Keyu and Li, Yulin and Chen, Bin and Zhao, Hengshuang and Qi, Xiaojuan and Tian, Zhuotao},
-  journal={arXiv preprint arXiv:2508.11256},
-  year={2025}
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2026},
+  note={Accepted for publication},
+  url={https://arxiv.org/abs/2508.11256}
 }
 ```
